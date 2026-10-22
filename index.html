@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UNOCTA · Unattended night observatory controller</title>
-<meta name="description" content="UNOCTA opens at dusk, images through the night, protects the equipment, recovers from failures and closes at dawn. Autonomous observatory control with fail-closed safety, multi-train rigs, autofocus and plate solving that explain themselves.">
+<meta name="description" content="UNOCTA opens at dusk, images through the night, protects the equipment, recovers from failures and closes at dawn. One local process with the browser as a window; fail-closed safety, multi-train rigs, a Gaia solver of its own, autofocus on known stars.">
 <meta property="og:title" content="UNOCTA · Keeping watch over the sky, through the night">
 <meta property="og:description" content="Autonomous observatory control: fail-closed safety, UPS-aware power, multi-train rigs, autofocus and solving that explain themselves.">
 <meta property="og:image" content="assets/shots/now.webp">
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#121518"/><g transform="translate(32 32) scale(.82) translate(-32 -32.5)"><path fill="none" stroke="#F4F1EA" stroke-width="6" stroke-linecap="round" d="M17 17 V34 A15 15 0 0 0 47 34 V17"/><path stroke="#F4F1EA" stroke-width="3.5" d="M19.5 17 H23 M41 17 H44.5"/><circle fill="none" stroke="#5FA3E6" stroke-width="5.7" cx="32" cy="17" r="6.65"/><rect fill="#F4F1EA" x="29" y="49" width="6" height="6"/><rect fill="#F4F1EA" x="21" y="54" width="22" height="3.6" rx="1.8"/></g></symbol><symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol><symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11"/><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z"/><path d="M6 13h12"/><path d="M6 17h12"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><symbol id="i-chart-gantt" viewBox="0 0 24 24"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></symbol><symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/></symbol><symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></symbol><symbol id="i-focus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-battery-charging" viewBox="0 0 24 24"><path d="m11 7-3 5h4l-3 5"/><path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935"/><path d="M22 14v-4"/><path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936"/></symbol><symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol><symbol id="i-cctv" viewBox="0 0 24 24"><path d="M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97"/><path d="M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z"/><path d="M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15"/><path d="M2 21v-4"/><path d="M7 9h.01"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol><symbol id="i-sliders-horizontal" viewBox="0 0 24 24"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol></svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#121518"/><g transform="translate(32 32) scale(.82) translate(-32 -32.5)"><path fill="none" stroke="#F4F1EA" stroke-width="6" stroke-linecap="round" d="M17 17 V34 A15 15 0 0 0 47 34 V17"/><path stroke="#F4F1EA" stroke-width="3.5" d="M19.5 17 H23 M41 17 H44.5"/><circle fill="none" stroke="#5FA3E6" stroke-width="5.7" cx="32" cy="17" r="6.65"/><rect fill="#F4F1EA" x="29" y="49" width="6" height="6"/><rect fill="#F4F1EA" x="21" y="54" width="22" height="3.6" rx="1.8"/></g></symbol><symbol id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol><symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11"/><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z"/><path d="M6 13h12"/><path d="M6 17h12"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><symbol id="i-chart-gantt" viewBox="0 0 24 24"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></symbol><symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/></symbol><symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></symbol><symbol id="i-focus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-battery-charging" viewBox="0 0 24 24"><path d="m11 7-3 5h4l-3 5"/><path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935"/><path d="M22 14v-4"/><path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936"/></symbol><symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol><symbol id="i-cctv" viewBox="0 0 24 24"><path d="M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97"/><path d="M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z"/><path d="M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15"/><path d="M2 21v-4"/><path d="M7 9h.01"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol><symbol id="i-sliders-horizontal" viewBox="0 0 24 24"><path d="M10 5H3"/><path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol><symbol id="i-milestone" viewBox="0 0 24 24"><path d="M12 13v8"/><path d="M12 3v3"/><path d="M4 6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h13a2 2 0 0 0 1.4-.6l2.3-2.3a1 1 0 0 0 0-1.4l-2.3-2.3A2 2 0 0 0 17 6z"/></symbol></svg>
 
 <header class="topbar">
   <div class="wrap">
@@ -22,6 +22,8 @@
       <a href="#imaging">Imaging</a>
       <a href="#safety">Safety</a>
       <a href="#observatory">Observatory</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#roadmap">Roadmap</a>
       <a class="btn" href="https://github.com/photon1503/UNOCTA"><svg class="icon"><use href="#i-external-link"/></svg>GitHub</a>
     </nav>
   </div>
@@ -118,8 +120,14 @@
     <div class="feature reveal">
       <div class="copy">
         <span class="tile"><svg class="icon"><use href="#i-focus"/></svg></span>
-        <h3>Autofocus that explains itself</h3>
-        <p>A slope model learned from past runs focuses from a few frames on one wing; a V-curve scan when no model is ready or the frames do not fit. Every frame is measured over the same Gaia stars, and the stars set aside are named: beside a catalogue neighbour, saturated, cut by the edge.</p>
+        <h3>Autofocus on known stars</h3>
+        <p>A slope model learned from past runs focuses from a few frames on one wing; a V-curve scan when no model is ready or the frames do not fit. The first frame is solved and the stars to follow are chosen from the Gaia catalogue, so every frame of the run measures the same known stars, the way a person would follow them.</p>
+        <ul>
+          <li>A hot pixel, a galaxy's core or a knot of nebula has no catalogue star and is not followed.</li>
+          <li>A star with a neighbour that would share its aperture once defocused is set aside, as is one saturated or cut by the edge. The note names each.</li>
+          <li>HFR and FWHM on every star and every frame, eccentricity and its angle beside them.</li>
+          <li>When the frame does not solve or the catalogue is not at hand, the run follows its measured stars and says why. Nothing fails the run.</li>
+        </ul>
         <div class="facts"><div><b class="num">5 + start + final</b>frames</div><div><b class="num">26 s</b>from start to focused</div><div><b class="num">50 Gaia stars</b>G 10.2 to 14.1</div></div>
       </div>
       <div><div class="shot" data-full="assets/shots/autofocus.webp"><img loading="lazy" src="assets/shots/autofocus-crop.webp" width="1340" height="540" alt="The focus curve: HFR against focuser position for a slope run, the three outward-wing frames, the start and the focus at 5807, and the result line with final HFR, FWHM, fit, frames, time taken and temperature."></div><p class="caption"><span class="label">Autofocus</span>A slope run. Click for the full page with the star measurements.</p></div>
@@ -128,9 +136,15 @@
     <div class="feature flip reveal">
       <div class="copy">
         <span class="tile"><svg class="icon"><use href="#i-star"/></svg></span>
-        <h3>Solving, on every frame</h3>
-        <p>Each run frame, autofocus frame and centring is solved against the local Gaia catalogue, with pointing error, rotation, scale and time in a running table. Solve now from the console and sync the mount if you want. The catalogue can be downloaded ahead to a magnitude, so a field not yet seen is ready offline.</p>
-        <div class="facts"><div><b class="num">0.5″</b>pointing error</div><div><b class="num">0.27″/px</b>scale</div><div><b class="num">1.3 s</b>per solve</div></div>
+        <h3>A solver of its own, for long focal lengths</h3>
+        <p>ASTAP gives up on the small field of a long focal length, so Core has its own near solver against Gaia DR3. It reads only the frame's pixels and a hint: where the mount says it points, and the scale from the camera and the OTA. Rotation, mirroring and skew are found; the scale may be 5 % off, the hint up to 10°. A hint that is wrong fails, never a wrong placement.</p>
+        <ul>
+          <li>Every run frame, autofocus frame and centring is solved, with pointing error, rotation, scale and time in a running table.</li>
+          <li>No index files. Gaia tiles are fetched once, cached, and can be downloaded ahead to a magnitude, so a field not yet seen is ready offline. The next run's stars are fetched before it starts.</li>
+          <li>A chain, not a choice: Gaia first, ASTAP, astrometry.net and PlateSolve 2 behind it, each with its mode and timeout.</li>
+          <li>Solve now from the console, and sync the mount if you want.</li>
+        </ul>
+        <div class="facts"><div><b class="num">353 of 359</b>production frames solved</div><div><b class="num">0.07″</b>median from ASTAP's centre</div><div><b class="num">1.3 s</b>per solve at 0.27″/px</div></div>
       </div>
       <div><div class="shot" data-full="assets/shots/solving.webp"><img loading="lazy" src="assets/shots/solving-crop.webp" width="876" height="390" alt="Recent solves: run frames of NGC 7000, autofocus and centring frames, each with the solver, the solved coordinates, error, rotation, scale and the time it took."></div><p class="caption"><span class="label">Plate solving</span>Recent solves. Click for the full page.</p></div>
     </div>
@@ -234,6 +248,51 @@
   </div>
 </section>
 
+<section id="architecture">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tile accent"><svg class="icon"><use href="#i-server"/></svg></span>
+      <div><h2>One process at the observatory. The browser is a window.</h2><p>UNOCTA is one local application: Core, the night supervisor, the planner and the notifier in one process that serves its own console over REST and WebSocket. Close the tab, lose the network, and the night goes on. Core keeps protecting the hardware when everything above it is gone.</p></div>
+    </div>
+
+    <div class="feature reveal">
+      <div class="copy">
+        <span class="tile"><svg class="icon"><use href="#i-monitor"/></svg></span>
+        <h3>Server and client, cleanly apart</h3>
+        <p>The console runs in any browser, signed in with a bearer token, and only requests actions. It is never an authority: nothing in it, and nothing above Core, can override a limit. The server decides where it listens: this computer only, every network, or chosen interfaces, on a port you pick. It is never forwarded to the internet; the supported remote path is your own WireGuard or Tailscale network.</p>
+        <ul>
+          <li>Alpaca over HTTP on any OS, ASCOM on Windows, NUT and USB-HID for the UPS, and a simulator, all behind one per-class device contract with one shared fixture suite.</li>
+          <li>Runs on the mini-PC at the mount, a Linux NUC or a Raspberry Pi. .NET 8 and nothing else; the console is bundled, so there is no web server to keep alive.</li>
+        </ul>
+        <div class="facts"><div><b class="num">1 process</b>Core, supervisor, planner, notifier</div><div><b>REST + WebSocket</b>one versioned API for every client</div><div><b class="num">3 backends</b>Alpaca, ASCOM, simulator</div></div>
+      </div>
+      <div><div class="shot" data-full="assets/shots/config-server-network.webp"><img loading="lazy" src="assets/shots/config-server-network.webp" width="1600" height="900" alt="The Server network card: the console reachable at localhost and a LAN address, listen on this computer, every network or chosen interfaces, the port, and the interfaces of the machine."></div><p class="caption"><span class="label">Configuration</span>Where the server listens. Click for the full page.</p></div>
+    </div>
+
+    <div class="feature flip reveal">
+      <div class="copy">
+        <span class="tile"><svg class="icon"><use href="#i-users"/></svg></span>
+        <h3>Users, roles, and an admin that cannot vanish</h3>
+        <p>A user directory on the server, passwords hashed with PBKDF2 and never written in clear, no default once the first admin has set their own. Three roles, each a fixed set of permissions: an observer sees everything and changes nothing, an operator drives the rig and orders the night, an administrator configures the observatory and its people. Nobody, in any role, bypasses a Core interlock.</p>
+        <ul>
+          <li>A changed role, a reset password or a deleted account ends that user's sessions at once.</li>
+          <li>The last administrator cannot be deleted or demoted, and nobody changes their own role.</li>
+          <li>Ten failed sign-ins for one name refuse it for a minute.</li>
+          <li>Every user changes their own password from their account; every access decision is in the Logbook.</li>
+        </ul>
+        <div class="facts"><div><b class="num">3 roles</b>observer, operator, administrator</div><div><b class="num">8 h</b>a session, gone at a restart</div><div><b class="num">600,000</b>PBKDF2 iterations per password</div></div>
+      </div>
+      <div><div class="shot" data-full="assets/shots/config-users.webp"><img loading="lazy" src="assets/shots/config-users.webp" width="1600" height="900" alt="The Users card: the user table with role, since and password set, the add-a-user form with username, role and first password, and the table of what each role may and may not do."></div><p class="caption"><span class="label">Configuration</span>Users and what each role may do. Click for the full page.</p></div>
+    </div>
+
+    <div class="cards reveal" style="margin-top:28px">
+      <div class="card"><div class="body"><span class="label">Simulator</span><h3>A whole observatory, simulated</h3><p>Every device class as a simulator with a fast-forward clock and a rendered Gaia sky, so a night's plan, a cloud event, a driver hang and a mid-night process kill can be tried before dusk. The demo observatory profile ships with ten targets and a night of runs.</p></div></div>
+      <div class="card"><div class="body"><span class="label">Checkpoints</span><h3>Kill the process, keep the night</h3><p>The night supervisor and every run checkpoint durably; a restart mid-night reconciles against the devices and carries on. Sessions end at a restart; profiles, the user directory and every event survive it.</p></div></div>
+      <div class="card"><div class="body"><span class="label">Evidence</span><h3>Every decision with its reason</h3><p>Commands, access decisions and domain events go to a durable event store; an automatic action records its inputs, its policy and its result. The Logbook reads it live, and the morning can read it later.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="promise">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -260,6 +319,33 @@
       <div class="card"><div class="shot" data-full="assets/shots/logbook.webp"><img loading="lazy" src="assets/shots/logbook.webp" width="1600" height="900" alt="Logbook: commands with their status, action, reason, actor and scope, live."></div><div class="body"><h3>Logbook</h3><p>Commands and their outcomes, access decisions and domain events, filtered by status, scope, actor and time.</p></div></div>
       <div class="card"><div class="shot" data-full="assets/shots/filter-offsets.webp"><img loading="lazy" src="assets/shots/filter-offsets-crop.webp" width="1010" height="480" alt="Filter offsets: the focus of each filter from nine autofocus runs, each run a dot weighted by its HFR, with the proposed offset per filter."></div><div class="body"><h3>Filter offsets</h3><p>A few autofocus runs per filter, each weighted by its HFR, become the offsets written into the profile.</p></div></div>
       <div class="card"><div class="shot" data-full="assets/shots/topology.webp"><img loading="lazy" src="assets/shots/topology.webp" width="1600" height="900" alt="Topology of the live observatory: site, roof, mount, the RC train and its devices, the UPS and switches."></div><div class="body"><h3>Topology, live</h3><p>The same page on the live observatory while it exposes: what each part is doing, coloured by its power.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tile accent"><svg class="icon"><use href="#i-milestone"/></svg></span>
+      <div><h2>What comes next</h2><p>The order is fixed: autonomy before breadth. The milestone that matters is not "it can image" but "it imaged all night and nobody was awake". Foundations, Core, safety, power, environment, the Orchestrator and the night supervisor are built. This is what is open, in order; where a part of it is already in the console, it is marked built.</p></div>
+    </div>
+    <div class="roadmap reveal">
+      <div class="q now">
+        <div>
+          <span class="label">Now</span>
+          <h3>Rig executor and train workers</h3>
+          <p>Two trains on one mount image one target all night, dither together, flip together, and survive one camera's failure without stopping the other. Built so far: mount authority, barriers, the dither planner, sessions, failure isolation and the safety hold. Three steps remain.</p>
+        </div>
+        <div class="ladder"><span><span class="n">1</span>Supervisor groups and the rig ledger</span><span class="line"></span><span><span class="n">2</span>The rig API and its panel</span><span class="line"></span><span><span class="n">3</span>Acceptance night, then a five-night soak</span></div>
+      </div>
+      <div class="q"><span class="label">Planner</span><h3>The planner decides the night</h3><ul><li class="done"><span class="state ok">built</span>Stored targets with their runs, and tonight's queue in order</li><li>Projects and exposure plans, progress per instrument</li><li>Visibility, constraints and conditions choose the next job per rig</li><li>Exposure harmonisation across the trains of a mount</li><li>Moon handling as explained sky suitability, not opaque rules</li></ul></div>
+      <div class="q"><span class="label">Sky</span><h3>Catalogue, framing, moving targets</h3><ul><li class="done"><span class="state ok">built</span>Framing on the real sky with every train's field; the rotator turns to the stored angle</li><li>Offline catalogue and a visible-tonight search</li><li>Mosaics and target import</li><li>Comets and asteroids from orbital elements, comet-rate tracking</li></ul></div>
+      <div class="q"><span class="label">Evidence</span><h3>Time ledger and the morning report</h3><ul><li class="done"><span class="state ok">built</span>Tonight's estimate on the Night page, the Steps timeline, the Logbook</li><li>Every lost second named: slew, centring, focus, dither, flip, download, recovery, weather, unexplained idle</li><li>Shutter-open efficiency as a number, with an agreed threshold</li><li>Chronicle: the live view, the morning report, forecast against reality</li></ul></div>
+      <div class="q"><span class="label">Data</span><h3>Calibration and data management</h3><ul><li class="done"><span class="state ok">built</span>FITS written with the solve's WCS, to paths the profile sets</li><li>A calibration library: darks, flats and bias as idle jobs, matched to each project with provenance</li><li>Naming patterns and complete FITS headers</li><li>Disk headroom, verified NAS and cloud offload, scheduled backups</li></ul></div>
+      <div class="q"><span class="label">Hardware</span><h3>INDI and the rotating dome</h3><ul><li>INDI as the third backend behind the same contract and the same fixtures</li><li>Dome slaving with slit clearance and exposure-aware steps, after the roll-off path</li></ul></div>
+      <div class="q"><span class="label">Commissioning</span><h3>Polar alignment, pointing, tilt</h3><ul><li class="done"><span class="state ok">built</span>The horizon editor, filter offsets and allsky calibration</li><li>Three-point polar alignment</li><li>Pointing and tracking models with native-mount handoff and staleness</li><li>Sensor tilt and collimation, in a guided Commissioning view</li></ul></div>
+      <div class="q"><span class="label">Robustness</span><h3>Smarter nights, safer updates</h3><ul><li class="done"><span class="state ok">built</span>Pushover with four tiers, the first notification channel</li><li>More channels (ntfy, Telegram, Discord, email), digests, quiet hours</li><li>Cloud-hole scheduling and condition-aware exposures</li><li>Meridian-flip-aware ordering, efficiency regression alerts</li><li>Update and rollback</li></ul></div>
+      <div class="q"><span class="label">Later</span><h3>Hooks, plugins, many sites</h3><ul><li>Event hooks and webhooks, then scripted actions, then driver and scheduler plugins</li><li>Multiple sites, multi-user accounts and quotas</li><li>Automatic master frames and mosaic optimisation</li><li>Safety stays closed throughout</li></ul></div>
     </div>
   </div>
 </section>
