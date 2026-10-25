@@ -24,8 +24,12 @@ running Jekyll over the files.
 Start the API on a spare port with a fresh data directory, sign in, load the
 demo observatory with its sample targets and runs, switch to Auto and move
 the demo clock into the night (`POST /api/v1/clock/demo`), then wait for the
-first frames. Capture full pages at 1920 × 1080 with a device scale of 2 and
-convert to WebP at 1600 px wide; the device shots are the Now page at 1920,
+first frames. Capture full pages at 1920 × 1080 with a device scale of 2 (the Camera page
+at scale 1: under Playwright's scale emulation the viewer's canvas is drawn
+at a fraction of its box) and convert to WebP at 1600 px wide; before the
+night starts, set `simulatedSky.catalog.fieldArcmin` to 60 in the applied
+profile (`GET /api/v1/profile/document`, `PUT /api/v1/profile`), so the
+simulator renders 2048 px frames instead of the 20′ default; the device shots are the Now page at 1920,
 Night at 1440, Safety at 768 × 1024 (touch) and Now at 390 × 844 (touch,
 mobile). Replace each file in `assets/shots/` under the same name and set the
 `width` and `height` attributes in `index.html` to the file's size, so the

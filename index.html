@@ -273,7 +273,7 @@
       <div class="node">
         <span class="tile"><svg class="icon"><use href="#i-monitor-smartphone"/></svg></span>
         <b>Your browser</b>
-        <span>Observatory screen, laptop, tablet or phone. It shows Core's state and asks for actions. It is never an authority.</span>
+        <span>Observatory screen, laptop, tablet or phone. It shows Core's state and asks for actions; it is never an authority. The heavy downloads are its own: the framing view's sky survey comes from CDS straight into the browser, never through the observatory.</span>
       </div>
       <div class="link"><span class="line"></span><span class="tag"><svg class="icon"><use href="#i-lock"/></svg>WireGuard · Tailscale</span><span class="line"></span></div>
       <div class="node">
@@ -285,7 +285,7 @@
       <div class="node primary">
         <span class="tile accent"><svg class="icon"><use href="#i-cpu"/></svg></span>
         <b>Observatory PC</b>
-        <span>One UNOCTA process: Core, the night supervisor, the planner, the notifier, and the console it serves. A mini-PC at the mount, a NUC or a Raspberry Pi; .NET 8 and nothing else.</span>
+        <span>One UNOCTA process: Core, the night supervisor, the planner, the notifier, and the console it serves. A mini-PC at the mount, a NUC or a Raspberry Pi; .NET 8 and nothing else. A frame leaves as compressed tiles of a pyramid, only the ones on screen, coarse first, so a thin link carries what you look at.</span>
       </div>
       <div class="link"><span class="line"></span><span class="tag">Alpaca · ASCOM · NUT</span><span class="line"></span></div>
       <div class="node">
@@ -313,6 +313,7 @@
         <ul>
           <li>Alpaca over HTTP on any OS, ASCOM on Windows, NUT and USB-HID for the UPS, and a simulator, all behind one per-class device contract with one shared fixture suite.</li>
           <li>The console is bundled, so there is no web server to keep alive. The console keeps Core's time, not the browser's.</li>
+          <li>The observatory's link carries only Core's state and the frame tiles in view, lossless PNG, cached by the browser; the sky imagery behind the framing view is the browser's own download from CDS.</li>
         </ul>
         <div class="facts"><div><b class="num">1 process</b>Core, supervisor, planner, notifier</div><div><b>REST + WebSocket</b>one versioned API for every client</div><div><b class="num">3 backends</b>Alpaca, ASCOM, simulator</div></div>
       </div>
