@@ -127,6 +127,30 @@ p { margin: 0; }
 .caption { margin-top: 8px; font-size: 12.5px; color: var(--muted); display: flex; gap: 12px; align-items: baseline; }
 .caption .label { color: var(--muted-2); }
 
+/* ---- what sets it apart: nine cards, each with a nameless "usually / UNOCTA" contrast ---- */
+.why-sec { background: linear-gradient(var(--bar), var(--bg) 320px); }
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.why .k { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; transition: border-color 0.2s ease, transform 0.2s ease; }
+.why .k:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.why .k::before { content: ""; position: absolute; left: 18px; right: 18px; top: -1px; height: 2px; border-radius: 0 0 2px 2px; background: var(--accent); opacity: 0.55; }
+.why .idx { position: absolute; top: 14px; right: 16px; font: 500 11px/1 var(--font-mono); letter-spacing: 0.06em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.why .head { display: flex; gap: 12px; align-items: center; padding-right: 32px; }
+.why .k h3 { font-size: 17px; line-height: 1.25; }
+.why .k > p { font-size: 13.5px; color: var(--text-2); }
+.why .vs { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); display: grid; gap: 8px; font-size: 12.5px; line-height: 1.45; }
+.why .vs > div { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.why .vs .label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.why .vs .label::before { content: ""; width: 7px; height: 7px; border-radius: 1.5px; flex: none; }
+.why .vs .them { color: var(--muted); }
+.why .vs .them .label::before { box-shadow: inset 0 0 0 1.5px var(--muted); }
+.why .vs .us { color: var(--text-2); }
+.why .vs .us .label { color: var(--accent); }
+.why .vs .us .label::before { background: var(--accent); }
+.why-more { display: grid; grid-template-columns: auto 1fr; gap: 10px 24px; align-items: baseline; margin-top: 16px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.why-more ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; font-size: 13px; color: var(--text-2); }
+.why-more li { display: flex; gap: 10px; align-items: flex-start; }
+.why-more li .icon { color: var(--accent); margin-top: 2px; width: 15px; height: 15px; }
+
 /* ---- sections ---- */
 section { padding: 44px 0; border-bottom: 1px solid var(--border); }
 section:last-of-type { border-bottom: 0; }
@@ -219,6 +243,7 @@ footer nav { margin-left: auto; display: flex; gap: 16px; }
   .feature.wide .copy { grid-template-columns: 36px minmax(0, 1fr); gap: 12px 14px; }
   .feature.wide .copy .facts, .feature.wide .copy ul { grid-column: 2; }
   .cards, .questions, .pages, .roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .roadmap .now { grid-template-columns: 1fr; }
 }
 @media (max-width: 900px) {
@@ -237,6 +262,9 @@ footer nav { margin-left: auto; display: flex; gap: 16px; }
   .browsers { flex-direction: column; }
   .hero { padding: 36px 0 28px; }
   .cards, .questions, .pages, .roadmap { grid-template-columns: 1fr; }
+  .why { grid-template-columns: 1fr; }
+  .why-more { grid-template-columns: 1fr; }
+  .why-more ul { grid-template-columns: 1fr; }
   .topbar nav a:not(.btn) { display: none; }
   .strip { gap: 12px; font-size: 12px; }
   .strip .seg.hide-sm { display: none; }
