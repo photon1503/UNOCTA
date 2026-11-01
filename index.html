@@ -239,7 +239,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="tile accent"><svg class="icon"><use href="#i-aperture"/></svg></span>
-      <div><h2>Imaging</h2><p>Focus and solving explain what they measured, so a bad night can be read in the morning.</p></div>
+      <div><h2>Imaging</h2><p>Focus, solving and guiding explain what they measured, so a bad night can be read in the morning.</p></div>
     </div>
 
     <div class="feature reveal">
@@ -281,6 +281,22 @@
         <p>The last frame of each camera, screen-stretched at exact binary zoom, with its histogram, clipping display, star overlay and statistics: HFR, FWHM, eccentricity, background. The solve result sits in the frame's header line; with it, the RA/Dec grid and a cursor whose coordinates the toolbar shows. The stretch's three points are in the operator's hands.</p>
       </div>
       <div><div class="shot" data-full="assets/shots/camera.webp"><img loading="lazy" src="assets/shots/camera-crop.webp" width="1600" height="788" alt="The Camera page: a run frame of NGC 7000 from the simulated sky, the histogram with its stretch controls and the statistics column."></div><p class="caption"><span class="label">Camera</span>A run frame on the demo observatory, from the simulator's rendered Gaia sky. Click for the full page.</p></div>
+    </div>
+
+    <div class="feature flip reveal">
+      <div class="copy">
+        <span class="tile"><svg class="icon"><use href="#i-crosshair"/></svg></span>
+        <h3>Guiding without a guide camera</h3>
+        <p>An unguided mount drifts, a few tenths of an arcsecond a minute, and the recentre trigger catches it a frame too late. Drift compensation reads the drift from the plate solves the run makes anyway and cancels it through the mount's own tracking-rate offsets. Every solve refits the drift over the last half hour, with the corrections already applied taken out, so the model follows the target across the sky.</p>
+        <ul>
+          <li>The drift is remembered by hour angle, declination and pier side. The next run near a position starts with the rate already applied, before its first frame is solved.</li>
+          <li>The Guiding page draws the run's drift against the target, every centring, dither and rate change marked, and a map of the corrections the model applies across the sky.</li>
+          <li>A guider beside PHD2, chosen per train, and off unless chosen. A mount that cannot take rate offsets leaves the run unguided, with the reason.</li>
+          <li>No offset outlives its guider: when a mount unparks or starts tracking, Core sets any it still holds back to zero.</li>
+        </ul>
+        <div class="facts"><div><b class="num">8.4″ in 25 min</b>NGC 891 unguided, then recentred</div><div><b class="num">within 2.6″</b>for the next 45 min, compensated</div><div><b class="num">every solve</b>updates the model</div></div>
+      </div>
+      <div><div class="shot" data-full="assets/shots/guiding.webp"><img loading="lazy" src="assets/shots/guiding-crop.webp" width="1600" height="1058" alt="The Guiding page: the pointing drift of NGC 891 in RA and Dec against time with its centrings and recentre marked and the rates drift compensation applied, and below it the correction map, arrows over hour angle and declination with the mount's position ringed, beside the remembered measurements."></div><p class="caption"><span class="label">Guiding</span>The observatory's own NGC 891 run on 1 November; the map is drawn from the 77 drift stretches it measured since 12 October. Click for the full page.</p></div>
     </div>
   </div>
 </section>
@@ -334,7 +350,7 @@
       <div class="copy">
         <span class="tile"><svg class="icon"><use href="#i-layers"/></svg></span>
         <h3>Two trains on one mount, or more</h3>
-        <p>A rig is a mount with the trains it carries. Trains share slews, dithers and meridian flips through barriers and fail on their own: one train's hung driver does not end the other's night. Topology draws the site through enclosure, mount, trains and devices, with the switch channels and USB ports that feed each, coloured by power.</p>
+        <p>A rig is a mount with the trains it carries. Trains share slews, dithers and meridian flips through barriers and fail on their own: one train's hung driver does not end the other's night. Equipment's Diagram view draws the site through enclosure, mount, trains and devices, with the switch channels and USB ports that feed each, coloured by power.</p>
         <ul><li>Automation addresses a site, rig or train role; only Core resolves it to a device or a channel.</li><li>Every device class has its own adapter per backend. A capability a device lacks is reported, never guessed.</li></ul>
       </div>
       <div><div class="shot" data-full="assets/shots/topology.webp"><img loading="lazy" src="assets/shots/topology-crop.webp" width="1600" height="769" alt="Topology of the demo observatory: the site, a roll-off roof, one mount carrying an APO refractor and an RC reflector, each with camera, guide camera, filter wheel, focuser and rotator, fed from three power boxes and the UPS, while the APO camera exposes."></div><p class="caption"><span class="label">Topology</span>The demo observatory while it images: an APO refractor and an RC reflector on one mount. Click for the full page.</p></div>
@@ -525,7 +541,7 @@
       <div class="q"><span class="label">Evidence</span><h3>Time ledger and the morning report</h3><ul><li class="done"><span class="state ok">built</span>Tonight's estimate on the Night page, the Steps timeline in layers, the Logbook, the Experience page</li><li>Every lost second named: slew, centring, focus, dither, flip, download, recovery, weather, unexplained idle</li><li>Shutter-open efficiency as a number, with an agreed threshold</li><li>Chronicle: the live view, the morning report, forecast against reality</li></ul></div>
       <div class="q"><span class="label">Data</span><h3>Calibration and data management</h3><ul><li class="done"><span class="state ok">built</span>FITS written with the solve's WCS, to paths the profile sets, one folder per night</li><li>A calibration library: darks, flats and bias as idle jobs, matched to each project with provenance</li><li>A night that never runs out of work: flats, darks and bias when no light frame can start</li><li>Naming patterns and complete FITS headers</li><li>Disk headroom, verified NAS and cloud offload, scheduled backups</li></ul></div>
       <div class="q"><span class="label">Hardware</span><h3>INDI and the rotating dome</h3><ul><li>INDI as a further backend behind the same contract and the same fixtures</li><li>Dome slaving with slit clearance and exposure-aware steps, after the roll-off path</li></ul></div>
-      <div class="q"><span class="label">Commissioning</span><h3>Polar alignment, pointing, tilt</h3><ul><li class="done"><span class="state ok">built</span>The horizon editor, filter offsets and allsky calibration</li><li>Three-point polar alignment</li><li>Pointing and tracking models with native-mount handoff and staleness</li><li>Sensor tilt and collimation, in a guided Commissioning view</li></ul></div>
+      <div class="q"><span class="label">Commissioning</span><h3>Polar alignment, pointing, tilt</h3><ul><li class="done"><span class="state ok">built</span>The horizon editor, filter offsets and allsky calibration</li><li class="done"><span class="state ok">built</span>A drift model from plate solves, by sky position, cancelled through the mount's rate offsets</li><li>Three-point polar alignment</li><li>Pointing and tracking models with native-mount handoff and staleness</li><li>Sensor tilt and collimation, in a guided Commissioning view</li></ul></div>
       <div class="q"><span class="label">Robustness</span><h3>Smarter nights, safer updates</h3><ul><li class="done"><span class="state ok">built</span>Pushover with four tiers, the first notification channel</li><li>More channels (ntfy, Telegram, Discord, email), digests, quiet hours</li><li>Cloud-hole scheduling and condition-aware exposures</li><li>Meridian-flip-aware ordering, efficiency regression alerts</li><li>Update and rollback</li></ul></div>
       <div class="q"><span class="label">Later</span><h3>Hooks, plugins, many sites</h3><ul><li>Event hooks and webhooks, then scripted actions, then driver and scheduler plugins</li><li>Multiple sites, multi-user accounts and quotas</li><li>Automatic master frames and mosaic optimisation</li><li>Safety stays closed throughout</li></ul></div>
     </div>
@@ -536,7 +552,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><b>UNOCTA</b></a>
-    <span>Screenshots and recordings are from the demo observatory profile, every device a simulator with a rendered Gaia sky, on 25 October 2026; the framing video is from a live observatory. Fonts Space Grotesk, Inter and IBM Plex Mono (SIL OFL), icons Lucide (ISC), Apple and Linux marks from Simple Icons (CC0). Sky imagery in the framing view: DSS2 via Aladin Lite, CDS Strasbourg.</span>
+    <span>Screenshots and recordings are from the demo observatory profile, every device a simulator with a rendered Gaia sky, on 25 October 2026; the Guiding page is from the observatory's own run on 1 November 2026, and the framing video from a live observatory. Fonts Space Grotesk, Inter and IBM Plex Mono (SIL OFL), icons Lucide (ISC), Apple and Linux marks from Simple Icons (CC0). Sky imagery in the framing view: DSS2 via Aladin Lite, CDS Strasbourg.</span>
     <nav><a href="https://github.com/photon1503/UNOCTA">GitHub</a></nav>
   </div>
 </footer>

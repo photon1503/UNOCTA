@@ -7,7 +7,10 @@ and Train Automation, served by GitHub Pages from this repository.
 - `assets/shots/`: screenshots of the console, WebP, taken on the demo
   observatory profile (every device a simulator) on 25 October 2026, plus two
   GIF recordings (`steps.gif`, `phone.gif`) and the four device shots the hero
-  composes (`device-*.webp`: 1920, 1440, 768 and 390 px).
+  composes (`device-*.webp`: 1920, 1440, 768 and 390 px). The exception is
+  `guiding.webp` and `guiding-crop.webp`: the Guiding page at 1920 px, scale 1,
+  on 1 November 2026, with the observatory's own NGC 891 run and a drift memory
+  holding the 77 drift stretches it measured since 12 October.
 - `assets/video/`: the target framing recording, MP4 and WebM, with a poster.
 - `assets/fonts/`: Space Grotesk, Inter and IBM Plex Mono (SIL Open Font
   License, see the `OFL*.txt` files), the same files the console bundles.
